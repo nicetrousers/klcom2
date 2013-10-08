@@ -1,4 +1,7 @@
 Klcom2::Application.routes.draw do
+  resources :sites
+
+
   devise_for :users
 
   get 'about' => 'pages#about'
