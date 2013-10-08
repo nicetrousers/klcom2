@@ -1,0 +1,36 @@
+
+$baseFontFamily: 'Open Sans', sans-serif;
+@import url(http://fonts.googleapis.com/css?family=Open+Sans);
+
+$linkColorHover: #7E8AA2;
+
+
+$navbarBackgroundHighlight: #263248;
+$navbarBackground: #263248;
+$navbarText: #DFEBFF;
+$navbarLinkColor: #DFEBFF;
+$navbarBrandColor: #DFEBFF;
+$navbarLinkColorHover: #FF530D;
+
+
+@import 'bootstrap';
+
+body {
+	padding-top: 60px;
+}
+
+@import 'bootstrap-responsive';
+
+.navbar-inner{
+    @include box-shadow(none !important);
+    border: 0;
+}
+
+
+.footer {
+	margin-top: 50px;
+	color: $grayLight;
+	a {
+		color: $gray;
+	}
+}
