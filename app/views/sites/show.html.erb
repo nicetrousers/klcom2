@@ -4,7 +4,10 @@
 			<p>
 			  <%= @site.name %>
 			</p>
+
+			<% if current_user == @site.user %>
 				<%= link_to 'Edit', edit_site_path(@site) %> |
+			<% end %>
 				<%= link_to 'Back', sites_path %>
 			
 		</div>

@@ -1,4 +1,6 @@
 class SitesController < ApplicationController
+  before_filter :authenticate_user!, except: [:index]
+
   # GET /sites
   # GET /sites.json
   def index
@@ -24,7 +26,7 @@ class SitesController < ApplicationController
   # GET /sites/new
   # GET /sites/new.json
   def new
-    @site = Site.new
+    @site = current_user.sites.new
 
     respond_to do |format|
       format.html # new.html.erb
@@ -34,13 +36,13 @@ class SitesController < ApplicationController
 
   # GET /sites/1/edit
   def edit
-    @site = Site.find(params[:id])
+    @site = current_user.sites.find(params[:id])
   end
 
   # POST /sites
   # POST /sites.json
   def create
-    @site = Site.new(params[:site])
+    @site = current_user.sites.new(params[:site])
 
     respond_to do |format|
       if @site.save
@@ -56,7 +58,7 @@ class SitesController < ApplicationController
   # PUT /sites/1
   # PUT /sites/1.json
   def update
-    @site = Site.find(params[:id])
+    @site = current_user.sites.find(params[:id])
 
     respond_to do |format|
       if @site.update_attributes(params[:site])
@@ -72,7 +74,7 @@ class SitesController < ApplicationController
   # DELETE /sites/1
   # DELETE /sites/1.json
   def destroy
-    @site = Site.find(params[:id])
+    @site = current_user.sites.find(params[:id])
     @site.destroy
 
     respond_to do |format|
